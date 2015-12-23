@@ -1,4 +1,5 @@
 import LinkedStateMixin from 'react-addons-linked-state-mixin';
+import validator from 'validator';
 import {user} from './_mock-data';
 
 module.exports = React.createClass({
@@ -50,8 +51,28 @@ module.exports = React.createClass({
     console.log('updated user:', updatedUser);
   },
 
+  _validateEmail: function(value) {
+    return validator.isEmail(value);
+  },
+
+  _validateName: function(value) {
+    return (validator.isLength(value.trim(), 1, 50));
+  },
+
+  _validate: function(firstName, lastName, email, github) {
+    this.setState({
+      isValid: {
+        firstName: this._validateName(firstName),
+        lastName: this._validateName(lastName),
+        email: this._validateEmail(email),
+        github: this._validateName(github)
+      }
+    });
+  },
+
   handleSaveClick: function() {
     var {firstName, lastName, email, github} = this.state;
+    this._validate(firstName, lastName, email, github);
     this._updateUser();
   },
 

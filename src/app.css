@@ -24,6 +24,7 @@ input:focus {
 }
 
 button {
+  margin: 5px;
   padding: 10px;
   width: 25%;
   border: solid 1px #02b3e4;
@@ -42,7 +43,7 @@ button:hover {
 .button-container {
   display: flex;
   justify-content: flex-end;
-  margin-top: 10px;
+  margin: 5px -5px 0;
 }
 
 .valid {
