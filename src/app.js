@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
+import User from './user';
 
 export default class App extends Component {
   render() {
     return (
-      <h1>Hello, world.</h1>
+      <div>
+        <User />
+      </div>
     );
   }
 }
