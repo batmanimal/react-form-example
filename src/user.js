@@ -23,8 +23,18 @@ module.exports = React.createClass({
       firstName: first_name || '',
       lastName: last_name || '',
       email: email || '',
-      github: github || ''
+      github: github || '',
+      isValid: {
+        firstName: true,
+        lastName: true,
+        email: true,
+        github: true
+      }
     };
+  },
+
+  _getInputStyleName: function(isValid) {
+    return isValid ? 'valid' : 'invalid';
   },
 
   _updateUser: function() {
@@ -47,7 +57,7 @@ module.exports = React.createClass({
 
   handleCancelClick: function() {
     // with real data, this would be something like this.props.user
-    var {first_name, last_name, email, github} = user;
+    var {first_name, last_name, email, github, isValid} = user;
 
     this.setState({
       firstName: first_name,
@@ -59,6 +69,8 @@ module.exports = React.createClass({
   
   render: function() { 
 
+    var {isValid} = this.state;
+
     return (
       <div styleName='content-container'>
         <div className='main'>
@@ -66,23 +78,27 @@ module.exports = React.createClass({
 
           <div>
             <input type='text'
+                   className={this._getInputStyleName(isValid.firstName)}
                    valueLink={this.linkState('firstName')}
                    placeholder='First Name'/>
           </div>
           <div>
             <input type='text'
+                   className={this._getInputStyleName(isValid.lastName)}
                    valueLink={this.linkState('lastName')}
                    placeholder='Last Name'/>
           </div>
           <div>
             <input type='text'
+                   className={this._getInputStyleName(isValid.email)}
                    valueLink={this.linkState('email')}
                    placeholder='Email'/>
           </div>
           <div>
-          <input type='text'
-                 valueLink={this.linkState('github')}
-                 placeholder='Github'/>
+            <input type='text'
+                   className={this._getInputStyleName(isValid.github)}
+                   valueLink={this.linkState('github')}
+                   placeholder='Github'/>
           </div>
 
           <div className='button-container'>
