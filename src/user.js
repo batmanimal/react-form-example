@@ -41,14 +41,16 @@ module.exports = React.createClass({
   _updateUser: function() {
     var {firstName, lastName, email, github} = this.state;
 
-    var updatedUser = {
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      github: github
-    };
+    if (this._areValid(firstName, lastName, email, github)) {
+      var updatedUser = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        github: github
+      };
     // in a real app, you'd send this user obj to an action handler to update store
     console.log('updated user:', updatedUser);
+    }
   },
 
   _validateEmail: function(value) {
@@ -68,6 +70,18 @@ module.exports = React.createClass({
         github: this._validateName(github)
       }
     });
+  },
+
+  _areValid: function(firstName, lastName, email, github) {
+    var result = false;
+    if (this._validateName(firstName)
+      && this._validateName(lastName) 
+      && this._validateEmail(email) 
+      && this._validateName(github)) {
+      
+      result = true;
+    }
+    return result;
   },
 
   handleSaveClick: function() {
