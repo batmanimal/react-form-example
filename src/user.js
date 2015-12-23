@@ -88,6 +88,17 @@ module.exports = React.createClass({
     return value.trim();
   },
 
+  _clearErrors: function() {
+    this.setState({
+      isValid: {
+        firstName: true,
+        lastName: true,
+        email: true,
+        github: true
+      }
+    });
+  },
+
   handleSaveClick: function() {
     var {firstName, lastName, email, github} = this.state;
     this._validate(firstName, lastName, email, github);
@@ -104,6 +115,7 @@ module.exports = React.createClass({
       email: email,
       github: github || ''
     });
+    this._clearErrors();
   },
   
   render: function() { 
