@@ -123,41 +123,39 @@ module.exports = React.createClass({
     var {isValid} = this.state;
 
     return (
-      <div styleName='content-container'>
-        <div className='main'>
-          <h2>Basic Information</h2>
+      <div className='main'>
+        <h2>Basic Information</h2>
 
-          <div>
-            <input type='text'
-                   className={this._getInputStyleName(isValid.firstName)}
-                   valueLink={this.linkState('firstName')}
-                   placeholder='First Name'/>
-          </div>
-          <div>
-            <input type='text'
-                   className={this._getInputStyleName(isValid.lastName)}
-                   valueLink={this.linkState('lastName')}
-                   placeholder='Last Name'/>
-          </div>
-          <div>
-            <input type='text'
-                   className={this._getInputStyleName(isValid.email)}
-                   valueLink={this.linkState('email')}
-                   placeholder='Email'/>
-          </div>
-          <div>
-            <input type='text'
-                   className={this._getInputStyleName(isValid.github)}
-                   valueLink={this.linkState('github')}
-                   placeholder='Github'/>
-          </div>
-
-          <div className='button-container'>
-            <button onClick={this.handleCancelClick}>Cancel</button>
-            <button onClick={this.handleSaveClick}>Save</button>
-          </div>
+        <div>
+          <input type='text'
+                 className={this._getInputStyleName(isValid.firstName)}
+                 valueLink={this.linkState('firstName')}
+                 placeholder='First Name'/>
         </div>
-      </div> 
+        <div>
+          <input type='text'
+                 className={this._getInputStyleName(isValid.lastName)}
+                 valueLink={this.linkState('lastName')}
+                 placeholder='Last Name'/>
+        </div>
+        <div>
+          <input type='text'
+                 className={this._getInputStyleName(isValid.email)}
+                 valueLink={this.linkState('email')}
+                 placeholder='Email'/>
+        </div>
+        <div>
+          <input type='text'
+                 className={this._getInputStyleName(isValid.github)}
+                 valueLink={this.linkState('github')}
+                 placeholder='Github'/>
+        </div>
+
+        <div className='button-container'>
+          <button onClick={this.handleCancelClick}>Cancel</button>
+          <button onClick={this.handleSaveClick}>Save</button>
+        </div>
+      </div>
     );
   }
 });
