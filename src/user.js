@@ -43,10 +43,10 @@ module.exports = React.createClass({
 
     if (this._areValid(firstName, lastName, email, github)) {
       var updatedUser = {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        github: github
+        firstName: this._sanitizeValue(firstName),
+        lastName: this._sanitizeValue(lastName),
+        email: this._sanitizeValue(email),
+        github: this._sanitizeValue(github)
       };
     // in a real app, you'd send this user obj to an action handler to update store
     console.log('updated user:', updatedUser);
@@ -82,6 +82,10 @@ module.exports = React.createClass({
       result = true;
     }
     return result;
+  },
+
+  _sanitizeValue: function(value) {
+    return value.trim();
   },
 
   handleSaveClick: function() {
