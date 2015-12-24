@@ -1,7 +1,7 @@
 {
   "name": "react-form-example",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple form example using React, Webpack and Validator",
   "main": "index.js",
   "scripts": {
     "start": "node server.js"
@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/batmanimal/react-form-example.git"
   },
-  "author": "jk eldon",
-  "license": "ISC",
+  "author": "@batmanimal (JK Eldon)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/batmanimal/react-form-example/issues"
   },

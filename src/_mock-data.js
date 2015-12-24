@@ -1,7 +1,7 @@
 module.exports = {
   "user": {
-    "first_name": "Jennie",
-    "last_name": "Kim",
+    "first_name": "JK",
+    "last_name": "Eldon",
     "email": "jk@youhavetolearncomputers.com",
     "github": "batmanimal"
   }

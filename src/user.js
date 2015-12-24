@@ -107,7 +107,7 @@ module.exports = React.createClass({
 
   handleCancelClick: function() {
     // with real data, this would be something like this.props.user
-    var {first_name, last_name, email, github, isValid} = user;
+    var {first_name, last_name, email, github} = user;
 
     this.setState({
       firstName: first_name,
